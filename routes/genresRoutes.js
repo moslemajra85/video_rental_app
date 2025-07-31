@@ -5,12 +5,14 @@ const {
   getGenres,
   createGenre,
   getGenre,
-  updateGenre
+  updateGenre,
+  deleteGenre
 } = require("../controllers/genresController");
 
 Router.get("/", getGenres);
 Router.post("/", createGenre);
 Router.get("/:id", getGenre);
 Router.put('/:id', updateGenre)
+Router.delete('/:id', deleteGenre)
 
 module.exports = Router;
