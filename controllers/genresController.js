@@ -24,19 +24,31 @@ const createGenre = async (req, res) => {
   }
 };
 
+const getGenre = async (req, res) => {
+  try {
+    const id = req.params.id;
 
-const getGenre = async(req, res) => {
+    const genre = await Genre.findById(id);
 
-
-    try {
-        
-    } catch (error) {
-        
+    if (!genre) {
+      res.status(404).send("Genre not found");
+      return;
     }
-}
 
+    res.status(200).send(genre);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+
+const updateGenre = async (req, res) => {
+
+  
+ }
 module.exports = {
   getGenres,
   createGenre,
-  getGenre
+  getGenre,
+  updateGenre
 };
