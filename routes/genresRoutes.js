@@ -5,6 +5,7 @@ const {
   getGenres,
   createGenre,
   getGenre,
+  updateGenre
 } = require("../controllers/genresController");
 
 Router.get("/", getGenres);

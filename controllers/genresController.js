@@ -41,14 +41,21 @@ const getGenre = async (req, res) => {
   }
 };
 
-
 const updateGenre = async (req, res) => {
+  try {
+    const id = req.params.id;
 
-  
- }
+    const genres = await Genre.findByIdAndUpdate(id, req.body);
+
+    res.status(200).send(genres);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
 module.exports = {
   getGenres,
   createGenre,
   getGenre,
-  updateGenre
+  updateGenre,
 };
