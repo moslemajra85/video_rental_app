@@ -5,12 +5,15 @@ const connectDB = require("./config");
 const Genre = require("./models/genre");
 const genresRoutes = require("./routes/genresRoutes");
 const customersRoutes = require("./routes/customersRoutes");
+const moviesRoutes = require("./routes/moviesRoutes");
+
 
 const app = express();
 app.use(express.json());
 
 app.use("/api/videoapp/genres", genresRoutes);
 app.use("/api/videoapp/customers", customersRoutes);
+app.use("/api/videoapp/movies", moviesRoutes);
 connectDB();
 
 // roote: http:://localhost:9000
